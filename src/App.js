@@ -12,6 +12,31 @@ class Game extends Component{
     }
   }
 
+  // this is where methods are going to  live
+  playGame = () => {
+
+    this.setState({
+     playerOne:this.signs[Math.floor(Math.random()*3)],
+     playerTwo:this.signs[Math.floor(Math.random()*3)],
+    })
+  }
+decideWinner = () =>{
+
+const playerOne =this.state.playerOne
+const playerTwo =this.state.playerTwo
+
+
+     if(playerOne==playerTwo){
+       return "this is a tie"
+
+    }
+    else if((playerOne=="rock" && playerTwo=="paper" )||
+    (playerOne=="rock" && playerTwo==="scissors" )||(playerOne==="scissors" && playerTwo==="paper" )
+    return "Player One wins"
+    
+  ))}
+
+
 render(){
   return(
   <div className="container">
@@ -22,10 +47,10 @@ render(){
 
   </div>
   <div className="winner">
-here is the winner
+Here is the winner
   </div>
   <div>
-<button type="button">PLAY Game</button>
+<button type="button" onClick={this.playGame}>PLAY Game</button>
   </div>
 
 
